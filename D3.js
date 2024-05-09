@@ -150,21 +150,22 @@ const eyeColor = {
 */
 
 for (let index = 0; index < starWarsCharacters.length; index++) {
-  switch (starWarsCharacters[index].eye_color) {
+  const currentcharacter = starWarsCharacters[index];
+  switch (currentcharacter.eye_color) {
     case "blue":
-      eyeColor.blue.push(starWarsCharacters[index]);
+      eyeColor.blue.push(currentcharacter);
       break;
     case "yellow":
-      eyeColor.yellow.push(starWarsCharacters[index]);
+      eyeColor.yellow.push(currentcharacter);
       break;
     case "brown":
-      eyeColor.brown.push(starWarsCharacters[index]);
+      eyeColor.brown.push(currentcharacter);
       break;
     case "red":
-      eyeColor.red.push(starWarsCharacters[index]);
+      eyeColor.red.push(currentcharacter);
       break;
     case "blueGray":
-      eyeColor.blueGray.push(starWarsCharacters[index]);
+      eyeColor.blueGray.push(currentcharacter);
       break;
     default:
   }
@@ -181,7 +182,7 @@ let index = 0;
 while (index < starWarsCharacters.length) {
   crewMass = crewMass + starWarsCharacters[index].mass;
   index++;
-  console.log("LA MASSA TOTALE E'.", crewMass);
+  console.log("LA MASSA PARZIALE E'.", crewMass);
 }
 console.log("LA MASSA TOTALE E'.", crewMass);
 
@@ -197,9 +198,28 @@ console.log("LA MASSA TOTALE E'.", crewMass);
   Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se riesci ad ottenere un messaggio diverso.
 */
 
+const astronave = 200;
+if (astronave + crewMass === 500) {
+  console.log("Ship is under loaded");
+} else if (astronave + crewMass > 500 && astronave + crewMass < 700) {
+  console.log("Ship is half loaded");
+} else if (astronave + crewMass > 700 && astronave + crewMass < 900) {
+  console.log("Warning: Load is over 700");
+} else if (astronave + crewMass > 700 && astronave + crewMass < 1000) {
+  console.log("Critical Load: Over 900");
+} else if (astronave + crewMass > 1000) {
+  console.log("DANGER! OVERLOAD ALERT: escape from ship now!");
+}
+
 /* ESERCIZIO 8
   Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi effettuare la riassegnazione del valore corrispondente o creare un nuovo array)
 */
+
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  if (starWarsCharacters[i].gender === "n/a") {
+    starWarsCharacters[i].gender = "robot";
+  }
+}
 
 /* --EXTRA-- ESERCIZIO 9
   Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "charactersNames" le stringhe corrispondenti a personaggi con lo stesso nome.
